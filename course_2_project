@@ -34,7 +34,7 @@ def get_neg(string3):
     count_neg = 0
     string3 = strip_punctuation(string3.lower())
     string3 = string3.split()
-    for i3 in positive_words:
+    for i3 in negative_words:
         if i3 in string3:
             count_neg += 1
     return count_neg
