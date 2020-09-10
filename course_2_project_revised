@@ -1,3 +1,4 @@
+
 punctuation_chars = ["'", '"', ",", ".", "!", ":", ";", '#', '@']
 # lists of words to use
 
@@ -42,9 +43,9 @@ def get_neg(string3):
 stats_count = []
 stats_counting_rt = 0
 stats_counting_rep = 0
-file1 = open('project_twitter_data.csv','r')
-file1_read = file1.read()
-file1_read = file1_read.split('\n')
+file = open('project_twitter_data.csv','r')
+file_read = file.read()
+file1_read = file_read.split('\n')
 file_list = []
 for i in file1_read :
     i = i.split(',')
@@ -59,5 +60,8 @@ for j1 in range(len(rt_list)):
     int_rep = int(rep_list[j1])
     stats_counting_rt += int_rt
     stats_counting_rep += int_rep
-stats_count.append((stats_counting_rt,stats_counting_rep))
+file1 = strip_punctuation(file_read)
+file2 = get_pos(file1)
+file3 = get_neg(file1)
+stats_count.append((stats_counting_rt,stats_counting_rep,file2,file3,abs(file3-file2)))
 print(stats_count)
